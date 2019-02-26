@@ -38,7 +38,7 @@ public class ConfigClientApplication {
 	}
 
 	@Bean
-	public CommandLineRunner printProperties(@Value("${info.foo}") final String fooProperty)  {
+	public CommandLineRunner printProperties(@Value("${info.foo}") final String fooProperty) {
 		return args -> LOGGER.info("info.foo is: [{}]", fooProperty);
 	}
 }
