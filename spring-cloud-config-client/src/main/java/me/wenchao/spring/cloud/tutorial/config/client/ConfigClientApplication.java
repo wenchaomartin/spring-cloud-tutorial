@@ -5,18 +5,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * create by songwenchao　on 19-2-20
  */
-@Configuration
-@EnableAutoConfiguration
+
+@SpringBootApplication
 public class ConfigClientApplication {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ConfigClientApplication.class);
@@ -39,7 +38,7 @@ public class ConfigClientApplication {
 	}
 
 	@Bean
-	public CommandLineRunner printProperties(@Value("${info.foo}") final String fooProperty)  {
+	public CommandLineRunner printProperties(@Value("${info.foo}") final String fooProperty) {
 		return args -> LOGGER.info("info.foo is: [{}]", fooProperty);
 	}
 }
